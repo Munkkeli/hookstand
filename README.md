@@ -28,7 +28,7 @@ npm i hookstand
 
 ## Usage
 
-In it's most basic form, Hookstand can be used to replace all `useState` & `useCallback` hooks.
+In its most basic form, Hookstand can be used to replace all `useState` & `useCallback` hooks.
 
 ```tsx
 import {
@@ -40,7 +40,7 @@ import {
 } from 'hookstand';
 
 const Login = () => {
-  // 👉 Create a store locally withing a component
+  // 👉 Create a store locally within a component
   const { store } = useStore({
     email: '',
     password: '',
@@ -78,7 +78,7 @@ const Login = () => {
 
     if (response.success) {
       // ℹ️ Every action is provided with an Immer draft of the current state,
-      //    so it's properties can be modified directly
+      //    so its properties can be modified directly
       state.isLoggedIn = true;
     } else {
       state.error = 'invalid credentials';
@@ -187,7 +187,7 @@ const handleLogin = useAction(
 
     if (response.success) {
       // ℹ️ Every action is provided with an Immer draft of the current state,
-      //    so it's properties can be modified directly
+      //    so its properties can be modified directly
       state.isLoggedIn = true;
     } else {
       state.error = 'invalid credentials';
