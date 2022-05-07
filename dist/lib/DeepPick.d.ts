@@ -1,7 +1,7 @@
 /**
  * @see https://dev.to/tipsy_dev/advanced-typescript-reinventing-lodash-get-4fhe
  */
-import { String, Object, Union } from 'ts-toolbelt';
+import type { String, Object, Union } from 'ts-toolbelt';
 declare type GetIndexedField<T, K> = K extends keyof T ? T[K] : K extends `${number}` ? '0' extends keyof T ? undefined : number extends keyof T ? T[number] : undefined : undefined;
 declare type FieldWithPossiblyUndefined<T, Key> = GetFieldType<Exclude<T, undefined>, Key> | Extract<T, undefined>;
 declare type IndexedFieldWithPossiblyUndefined<T, Key> = GetIndexedField<Exclude<T, undefined>, Key> | Extract<T, undefined>;

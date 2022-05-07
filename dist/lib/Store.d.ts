@@ -1,4 +1,4 @@
-import { UseBoundStore } from 'zustand';
+import type { UseBoundStore } from 'zustand';
 declare type Prev = [
     never,
     0,
