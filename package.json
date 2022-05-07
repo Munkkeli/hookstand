@@ -1,0 +1,48 @@
+{
+  "name": "hookstand",
+  "version": "0.0.1",
+  "description": "Robust & opinionated React state management with hooks",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "tsx --noEmit",
+    "build": "tsc"
+  },
+  "author": "Tuomas Pöyry <@Munkkeli>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "github:Munkkeli/hookstand"
+  },
+  "bugs": {
+    "url": "https://github.com/Munkkeli/hookstand/issues"
+  },
+  "dependencies": {
+    "immer": "^9.0.12",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "zustand": "^3.7.0"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.4.1",
+    "@types/lodash": "^4.14.179",
+    "@types/react": "^17.0.39",
+    "jest": "^28.1.0",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^28.0.1",
+    "ts-node": "^10.7.0",
+    "ts-toolbelt": "^9.6.0",
+    "typescript": "^4.5.5"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "react",
+    "state",
+    "state-management",
+    "zustand",
+    "immer"
+  ]
+}

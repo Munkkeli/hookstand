@@ -1,0 +1,6 @@
+src/
+test/
+assets/
+.prettierrc
+jest.config.ts
+tsconfig.json

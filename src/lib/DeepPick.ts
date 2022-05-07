@@ -1,0 +1,51 @@
+/**
+ * @see https://dev.to/tipsy_dev/advanced-typescript-reinventing-lodash-get-4fhe
+ */
+
+import type { String, Object, Union } from 'ts-toolbelt';
+
+type GetIndexedField<T, K> = K extends keyof T
+  ? T[K]
+  : K extends `${number}`
+  ? '0' extends keyof T
+    ? undefined
+    : number extends keyof T
+    ? T[number]
+    : undefined
+  : undefined;
+
+type FieldWithPossiblyUndefined<T, Key> =
+  | GetFieldType<Exclude<T, undefined>, Key>
+  | Extract<T, undefined>;
+
+type IndexedFieldWithPossiblyUndefined<T, Key> =
+  | GetIndexedField<Exclude<T, undefined>, Key>
+  | Extract<T, undefined>;
+
+export type GetFieldType<T, P> = P extends `${infer Left}.${infer Right}`
+  ? Left extends keyof T
+    ? FieldWithPossiblyUndefined<T[Left], Right>
+    : Left extends `${infer FieldKey}[${infer IndexKey}]`
+    ? FieldKey extends keyof T
+      ? FieldWithPossiblyUndefined<
+          IndexedFieldWithPossiblyUndefined<T[FieldKey], IndexKey>,
+          Right
+        >
+      : undefined
+    : undefined
+  : P extends keyof T
+  ? T[P]
+  : P extends `${infer FieldKey}[${infer IndexKey}]`
+  ? FieldKey extends keyof T
+    ? IndexedFieldWithPossiblyUndefined<T[FieldKey], IndexKey>
+    : undefined
+  : undefined;
+
+type DeepPickMap<T extends object, D extends readonly string[]> = {
+  [P in D[number]]: Object.P.Pick<T, String.Split<P, '.'>>;
+};
+
+export type DeepPick<
+  T extends object,
+  D extends readonly string[]
+> = Union.Merge<DeepPickMap<T, D>[keyof DeepPickMap<T, D>]>;
